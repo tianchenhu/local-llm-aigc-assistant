@@ -54,14 +54,14 @@ Image --> GPU
 
 ---
 
-## Quick Start
+## Quick Start (Conceptual)
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-
-# Copy and edit config (add Tavily API key)
-cp docker-compose.example.yml docker-compose.yml
-
-# Start services
-docker compose up -d
+1. Install Docker and Ollama.
+2. Pull the LLM:
+   ollama pull qwen2.5
+3. Clone this repository and copy the example config:
+   cp docker-compose.example.yml docker-compose.yml
+4. Start services:
+   docker compose up -d
+5. Import the workflow in ComfyUI:
+   workflows/anima_workflow.json
