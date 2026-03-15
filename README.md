@@ -18,6 +18,8 @@ The project demonstrates local LLM deployment, multimodal integration, Docker or
 
 ![Chat Interface](docs/screenshot-chat.png)
 ![Anime Image Generation](docs/screenshot-anima-gen.png)
+## System Architecture
+
 ```mermaid
 flowchart TD
 
