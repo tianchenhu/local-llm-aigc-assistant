@@ -1,0 +1,147 @@
+{
+  "8": {
+    "inputs": {
+      "samples": [
+        "19",
+        0
+      ],
+      "vae": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": "masterpiece, best quality, ultra detailed, official genshin impact art style, hu tao (genshin impact):1.3, 1girl, solo, upper body portrait, mature young woman, sharp refined face, defined cheekbones, confident mischievous smile, sly grin, bright crimson red eyes with sharp gaze and subtle sparkle, flawless pale skin, long dark brown hair in twin tails with red ribbons flowing naturally, black wide-brimmed top hat tilted slightly with red plum blossom emblem and tassel, intricate red and black qipao-style dress with gold trims and plum flower patterns, short red cropped jacket, black shorts, bare legs with red decorative straps and garters, black low-heeled shoes, pyro vision glowing on hip, holding staff of homa casually over shoulder, subtle red pyro butterflies floating gently, elegant posture with slight head tilt, long slender legs, slim waist, mature proportions, soft warm rim lighting, detailed fabric texture, sharp focus, liyue harbor misty background at dusk, vibrant harmonious colors, young adult female",
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "12": {
+    "inputs": {
+      "text": "lowres, blurry, worst quality, low quality, deformed, bad anatomy, extra limbs, poorly drawn face, mutated hands, watermark, text, signature, chibi, loli, baby face, infant, childlike proportions, round face, big head, oversized eyes, exaggerated cute expression, forced smile, overly round cheeks, short legs, child proportions",
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "15": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "19": {
+    "inputs": {
+      "seed": 583368409350440,
+      "steps": 30,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "50",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "12",
+        0
+      ],
+      "latent_image": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "28": {
+    "inputs": {
+      "width": 768,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "44": {
+    "inputs": {
+      "unet_name": "anima-preview.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "45": {
+    "inputs": {
+      "clip_name": "qwen_3_06b_base.safetensors",
+      "type": "stable_diffusion",
+      "device": "cpu"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "46": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "50": {
+    "inputs": {
+      "lora_name": "add_detail.safetensors",
+      "strength_model": 0.4,
+      "strength_clip": 0.4,
+      "model": [
+        "44",
+        0
+      ],
+      "clip": [
+        "45",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  }
+}
