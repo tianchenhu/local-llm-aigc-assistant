@@ -24,11 +24,11 @@ The project demonstrates local LLM deployment, multimodal integration, Docker or
 graph TD
     A[User] -->|Text Prompt| B[Open WebUI Interface]
     B --> C[Local Multimodal AI System]
-    C --> D[Qwen2.5 Conversation Module<br>(7B GGUF Quantized)]
+    C --> D[Qwen2.5 Conversation Module<br>7B GGUF Quantized]
     C --> E[Tavily Real-time Web Search]
     C --> F[ComfyUI Image Generation Engine]
-    F --> G[Anima Anime Model<br>(anima-preview.safetensors)]
-    F --> H[Text Encoders + VAE<br>(qwen_3_06b_base & qwen_image_vae)]
+    F --> G[Anima Anime Model<br>anima-preview.safetensors]
+    F --> H[Text Encoders + VAE<br>qwen_3_06b_base & qwen_image_vae]
     D -->|Text Response| B
     E -->|Search Results| B
     G -->|Anime/Non-Realistic Image| B
@@ -36,9 +36,9 @@ graph TD
         I[RTX 4070 Laptop GPU<br>8GB VRAM]
     end
     C --> I
+
     style C fill:#f9f,stroke:#333,stroke-width:2px
     style I fill:#bbf,stroke:#333,stroke-width:2px
-
 ```
 
 ## Tech Stack
