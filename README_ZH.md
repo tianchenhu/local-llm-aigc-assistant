@@ -16,25 +16,22 @@
 ## 系统架构
 
 ```mermaid
-flowchart TD
+graph TD
+    A[用户] -->|提问| B[Open WebUI 界面]
+    B --> C[本地多模态 AI 系统]
+    C --> D[Qwen2.5 对话模块]
+    C --> E[Tavily 实时搜索]
+    C --> F[ComfyUI 图像生成]
+    F --> G[Anima 动漫模型]
+    F --> H[文本编码器 + VAE]
+    D -->|回复| B
+    E -->|搜索结果| B
+    G -->|动漫图像| B
+    subgraph "本地硬件"
+        I[RTX 4070 GPU]
+    end
+    C --> I
 
-用户[用户] --> Web界面[Open WebUI 界面]
-
-Web界面 --> 系统[本地多模态 AI 系统]
-
-系统 --> 对话服务[对话服务]
-对话服务 --> Qwen[Qwen2.5-7B GGUF 模型]
-Qwen --> Ollama[Ollama 推理运行时]
-
-系统 --> 搜索服务[联网搜索服务]
-搜索服务 --> Tavily[Tavily API]
-
-系统 --> 图像服务[图像生成服务]
-图像服务 --> ComfyUI[ComfyUI 工作流引擎]
-ComfyUI --> Anima[Anima 动漫模型]
-
-对话服务 --> GPU[RTX 4070 Laptop GPU]
-图像服务 --> GPU
 ```
 
 ## 技术栈
