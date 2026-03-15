@@ -36,6 +36,8 @@ graph TD
         I[RTX 4070 Laptop GPU<br>8GB VRAM]
     end
     C --> I
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#bbf,stroke:#333,stroke-width:2px
 
 ```
 
