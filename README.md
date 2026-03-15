@@ -22,21 +22,22 @@ The project demonstrates local LLM deployment, multimodal integration, Docker or
 
 ```mermaid
 graph TD
-    A[用户] -->|提问| B[Open WebUI 界面]
-    B --> C[本地多模态 AI 系统]
-    C --> D[Qwen2.5 对话模块]
-    C --> E[Tavily 实时搜索]
-    C --> F[ComfyUI 图像生成]
-    F --> G[Anima 动漫模型]
-    F --> H[文本编码器 + VAE]
-    D -->|回复| B
-    E -->|搜索结果| B
-    G -->|动漫图像| B
-    subgraph "本地硬件"
-        I[RTX 4070 GPU]
+    A[User] -->|Text Prompt| B[Open WebUI Interface]
+    B --> C[Local Multimodal AI System]
+    C --> D[Qwen2.5 Conversation Module<br>(7B GGUF Quantized)]
+    C --> E[Tavily Real-time Web Search]
+    C --> F[ComfyUI Image Generation Engine]
+    F --> G[Anima Anime Model<br>(anima-preview.safetensors)]
+    F --> H[Text Encoders + VAE<br>(qwen_3_06b_base & qwen_image_vae)]
+    D -->|Text Response| B
+    E -->|Search Results| B
+    G -->|Anime/Non-Realistic Image| B
+    subgraph "Local Hardware Resources"
+        I[RTX 4070 Laptop GPU<br>8GB VRAM]
     end
     C --> I
-
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
 ## Tech Stack
