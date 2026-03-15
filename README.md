@@ -18,7 +18,25 @@ The project demonstrates local LLM deployment, multimodal integration, Docker or
 
 ![Chat Interface](docs/screenshot-chat.png)
 ![Anime Image Generation](docs/screenshot-anima-gen.png)
-![System Architecture](docs/architecture.png)
+```mermaid
+flowchart TD
+
+User[User] --> UI[Open WebUI]
+
+UI --> Core[Local Multimodal AI System]
+
+Core --> Chat[Dialogue Module]
+Chat --> Qwen[Qwen2.5-7B GGUF]
+Qwen --> Ollama[Ollama / llama.cpp]
+
+Core --> Search[Web Search Module]
+Search --> Tavily[Tavily API]
+
+Core --> Image[Image Generation Module]
+Image --> ComfyUI[ComfyUI Workflow Engine]
+ComfyUI --> Anima[Anima Anime Model]
+
+Core --> GPU[GPU Inference RTX 4070 Laptop]
 
 ---
 
