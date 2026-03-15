@@ -46,16 +46,62 @@ ComfyUI --> Anima[Anima 动漫模型]
 - 容器化：Docker + docker-compose
 - 测试硬件：RTX 4070 Laptop（8GB 显存）
 
-## 快速上手（Docker 一键启动）
+## 快速开始（Quick Start）
+
+### 1. 环境准备
+
+请先确保已安装以下软件：
+
+- Docker
+- Docker Compose
+- Ollama
+- NVIDIA GPU（推荐）
+
+### 2. 拉取大语言模型
+
+安装并启动 Ollama 后，拉取 Qwen 模型：
 
 ```bash
-# 1. 克隆仓库
-git clone https://github.com/你的用户名/你的仓库名.git
-cd 你的仓库名
+ollama pull qwen2.5
+```
 
-# 2. 复制配置文件并修改（填入 Tavily API Key 等）
+### 3. 克隆项目
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 4. 配置环境
+
+复制配置模板并根据需要修改：
+
+```bash
 cp docker-compose.example.yml docker-compose.yml
-# 编辑 docker-compose.yml，填入你的 Tavily Key
+```
 
-# 3. 启动所有服务
+如需使用联网搜索，请在配置文件中填写 **Tavily API Key**。
+
+### 5. 启动服务
+
+```bash
 docker compose up -d
+```
+
+### 6. 导入 ComfyUI 工作流
+
+打开 ComfyUI，导入项目中的工作流文件：
+
+```
+workflows/anima_workflow.json
+```
+
+### 7. 访问 Web 界面
+
+启动完成后，在浏览器打开：
+
+```
+http://localhost:3000
+```
+
+即可进入 Open WebUI，与本地大模型对话或生成动漫风格图片。
