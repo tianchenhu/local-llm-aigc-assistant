@@ -44,7 +44,7 @@ ComfyUI --> Anima[Anima Model]
 LLM --> GPU[RTX 4070 Laptop GPU]
 Image --> GPU
 
-...
+```
 
 ## Tech Stack
 
